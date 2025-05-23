@@ -16,6 +16,7 @@ import ClosingCTASection from './components/ClosingCTASection';
 import HealthInsurance from './components/HealthInsurance';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
+import DiscoveryCallSection from './components/DiscoveryCallSection';
 
 const OneWellnessHealthcarePlatformHomepageUpdated = () => {
   return (
@@ -34,6 +35,7 @@ const OneWellnessHealthcarePlatformHomepageUpdated = () => {
         <TestimonialsSection />
         <StepsSection />
         <PricingSection />
+        <DiscoveryCallSection />
         <ClosingCTASection />
         <FAQSection />
       </main>

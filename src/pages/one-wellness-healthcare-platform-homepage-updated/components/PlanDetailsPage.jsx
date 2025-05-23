@@ -88,7 +88,7 @@ const PlanDetailsPage = () => {
               Proceed to Pay
             </button>
 
-            <p className="text-sm text-center text-gray-600">
+            <p className="text-sm text-center text-gray-600 mt-3">
               By continuing, you accept our{' '}
               <Link to="/terms" className="text-[#28A745] hover:underline">Terms of use</Link>
               {' '}and{' '}

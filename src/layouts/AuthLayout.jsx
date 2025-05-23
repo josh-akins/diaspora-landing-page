@@ -83,13 +83,13 @@ const AuthHeader = () => {
         <Link to="#contact" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Contact Us</Link> */}
       {/* Desktop CTA Buttons */}
       <div className="hidden md:flex items-center space-x-4">
-        <Button 
+        {/* <Button 
           variant="outline" 
           className="border border-gray-300 text-sm rounded-[8px] text-accent font-light h-[40px] px-4"
           onClick={() => navigate('/login')}
         >
           Login
-        </Button>
+        </Button> */}
         <Button 
           variant="primary" 
           className="rounded-[8px] text-sm font-light h-[40px] px-4"
@@ -163,7 +163,7 @@ const AuthHeader = () => {
           </div>
             </Link>
             <div className="flex flex-col space-y-3 pt-3">
-              <Button 
+              {/* <Button 
                 variant="outline" 
                 className="border border-gray-300 rounded-[8px] text-accent font-light h-[40px]"
                 onClick={() => {
@@ -172,7 +172,7 @@ const AuthHeader = () => {
                 }}
               >
                 Login
-              </Button>
+              </Button> */}
               <Button 
                 variant="primary" 
                 className="rounded-[8px] font-light h-[40px]"
