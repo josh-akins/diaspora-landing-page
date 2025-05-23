@@ -30,7 +30,7 @@ const steps = [
 
 const StepsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="lg:pb-20 pt-20  bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 lg:gap-8 relative">
 
@@ -41,14 +41,14 @@ const StepsSection = () => {
               </h2>
             </div>
           {/* Get Started button (desktop) */}
-          <div className="hidden lg:block mb-10">
+          {/* <div className="hidden lg:block mb-10">
               <Link
                 to="/get-started"
                 className="bg-black text-white px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-[#222] transition"
               >
                 Get Started
               </Link>
-            </div>
+            </div> */}
           </div>
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-8 relative">
           {/* Left: Stepper */}
@@ -80,9 +80,15 @@ const StepsSection = () => {
           </div>
 
           {/* Right: Phone preview */}
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-end mt-12 lg:mt-0">
-            
-            <div className="bg-black rounded-3xl w-full max-w-[520px] flex flex-col items-center justify-center px-4 py-10 relative">
+          <div className="w-full lg:w-1/2 flex flex-col items-center">
+            <div className="bg- rounded-3xl w-full max-w-[600px] flex flex-col items-center justify-center px-4 py-10 relative">
+            <div className="flex flex-col items-center rounded-full bg-[#025F4C33] text-[#176B1B] text-xs font-semibold px-4 py-2 mb-4">
+            WANT MORE DETAILS?
+            </div>
+          <div className="text-[#176B1B] text-3xl font-semibold mb-7">
+            Victoria will explain everything
+          </div>
+            <img src="/images/victoria_sect_img.png" alt="OneWellness Mobile App Preview" className="w-[220px] w-full h-auto mx-auto" />
               {/* Get Started button (mobile) */}
               {/* <div className="block lg:hidden mb-8 w-full flex justify-center">
                 <Link
@@ -92,7 +98,7 @@ const StepsSection = () => {
                   Get Started
                 </Link>
               </div> */}
-              <div className="flex flex-col lg:flex-row items-center w-full">
+              {/* <div className="flex flex-col lg:flex-row items-center w-full">
                 <div className="text-white text-left mt-8 w-full px-2">
                   <div className="font-bold text-lg mb-2">Create an Account & Verify</div>
                   <Link
@@ -111,7 +117,7 @@ const StepsSection = () => {
                   style={{ boxShadow: '0 8px 32px 0 rgba(0,0,0,0.18)' }}
                 />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

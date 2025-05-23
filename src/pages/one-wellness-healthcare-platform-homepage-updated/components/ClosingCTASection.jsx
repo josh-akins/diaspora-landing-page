@@ -1,9 +1,12 @@
 import React from 'react';
 import Button from '../../../components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ClosingCTA = () => {
+  const navigate = useNavigate();
+  
   return (
-    <section className="pt-24 pb-24 relative overflow-hidden">
+    <section className="pt-4 pb-4 relative overflow-hidden">
       {/* <img src="/images/bg_pattern02.png" alt="Background" className='absolute top-0 left-0 w-full h-full z-0 opacity-[0.05]' /> */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row relative items-center overflow-hidden bg-[#fff6ec] rounded-[15px] pl-8 pb-0 pt-8 md:py-8 w-full mx-auto md:w-[900px] h-auto md:h-[320px]">
@@ -17,6 +20,7 @@ const ClosingCTA = () => {
             
             <Button 
               variant="primary" 
+            onClick={() => navigate('/signup')}
               className="rounded-lg text-sm h-[50px] w-[139px]"
             >
               Get Started

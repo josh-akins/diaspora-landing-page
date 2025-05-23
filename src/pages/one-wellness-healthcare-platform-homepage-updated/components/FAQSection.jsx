@@ -69,9 +69,9 @@ const FAQSection = () => {
   }, [openIndex]);
 
   return (
-    <section id="faq" className="md:py-20 bg-white">
+    <section id="faq" className="py-16 md:py-20 bg-white">
       <div className="max-w-2xl mx-auto px-4">
-        <h2 className="text-[#228821] text-4xl md:text-5xl font-bold text-center mb-12">FAQ</h2>
+        <h2 className="text-[#228821] text-4xl md:text-5xl font-bold text-center mb-8">FAQ</h2>
         <div className="divide-y divide-[#E5E7EB]">
           {faqs.map((faq, idx) => {
             const isOpen = idx === openIndex;
@@ -82,7 +82,7 @@ const FAQSection = () => {
                   onClick={() => handleToggle(idx)}
                   aria-expanded={isOpen}
                 >
-                  <span className={`block font-semibold text-lg md:text-xl text-[#228821]`}>{faq.question}</span>
+                  <span className={`block font-normal text-md md:text-lg text-[#013B00]`}>{faq.question}</span>
                   <span className="ml-4 flex-shrink-0 mt-1">
                     <span
                       className={`inline-block transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-45' : ''}`}

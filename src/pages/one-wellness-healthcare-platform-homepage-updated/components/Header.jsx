@@ -44,13 +44,13 @@ const Header = () => {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button 
+          {/* <Button 
             variant="outline" 
             className="border border-gray-300 text-sm rounded-[8px] text-accent font-light h-[40px] px-4"
             onClick={() => navigate('/login')}
           >
             Login
-          </Button>
+          </Button> */}
           <Button 
             variant="primary" 
             className="rounded-[8px] text-sm font-light h-[40px] px-4"
@@ -119,7 +119,7 @@ const Header = () => {
                 Contact
               </Link>
               <div className="flex flex-col space-y-3 pt-3">
-                <Button 
+                {/* <Button 
                   variant="outline" 
                   className="border border-gray-300 rounded-[8px] text-accent font-light h-[40px]"
                   onClick={() => {
@@ -128,7 +128,7 @@ const Header = () => {
                   }}
                 >
                   Login
-                </Button>
+                </Button> */}
                 <Button 
                   variant="primary" 
                   className="rounded-[8px] font-light h-[40px]"
