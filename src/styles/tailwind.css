@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #3da647;
+    --color-primary-dark: #228821;
+    --color-primary-light: #82ee8f;
+
+    /* Secondary Colors */
+    --color-secondary: #f6921e;
+    --color-secondary-dark: #d6a42f;
+    --color-secondary-light: #ffdd57;
+
+    /* Accent Colors */
+    --color-accent: #1a3a4f;
+    --color-accent-light: #667085;
+    --color-accent-dark: #0f1728;
+
+    /* Status Colors */
+    --color-success: #82ee8f;
+    --color-warning: #f6921e;
+    --color-error: #f81d07;
+
+    /* Gray Scale */
+    --color-gray-100: #f9fafb;
+    --color-gray-200: #f4f4f4;
+    --color-gray-300: #e6e6e6;
+    --color-gray-400: #c2c1cc;
+    --color-gray-500: #8b909a;
+    --color-gray-600: #667085;
+    --color-gray-700: #4d5154;
+    --color-gray-800: #2c312e;
+    --color-gray-900: #1d1d1f;
+
+    /* Background Colors */
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6fff7;
+    --color-background-tertiary: #fff6ec;
+    --color-background-dark: #075f4c;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-[#e6ffe8] text-primary border border-primary hover:bg-[#d7f9d9];
+  }
+
+  .btn-outline {
+    @apply border border-gray-500 text-accent hover:bg-gray-100;
+  }
+
+  .card {
+    @apply bg-white rounded-[20px] shadow-md overflow-hidden;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-accent mb-6;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-500 mb-10;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}

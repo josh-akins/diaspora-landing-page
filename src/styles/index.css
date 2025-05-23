@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Kalam:wght@400;700&family=Lexend:wght@300;400;500;600;700&display=swap');
+
+@import './tailwind.css';
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, #3da647 0%, #f6921e 100%);
+}
+
+.hero_section {
+  background-image: linear-gradient(to bottom right, RGB(246, 251, 246) 50%, RGB(255, 249, 243) );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
