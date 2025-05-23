@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-0 xl:px-6 flex gap-4 md:gap-6 justify-between items-center">
         <div className="flex flex-col items-end">
           <Link to="/" className="flex items-center">
-            <img src="/images/img_onewellness_logo_1.svg" alt="OneWellness" className="h-6" />
+            <img src="/images/img_onewellness_logo_1.svg" alt="OneWellness" className="h-4 md:h-6" />
           </Link>
           <div className="ml-2 text-sm text-gray-500">
             <span>By</span>
@@ -34,32 +35,28 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link to="#features" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Features</Link>
-          <Link to="#pricing" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Pricing</Link>
-          <Link to="#diaspora" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Diaspora</Link>
-          <Link to="#features" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Features</Link>
-          <Link to="#blog" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Blog</Link>
-          <Link to="#contact" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Contact Us</Link>
+          {/* <Link to="/" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Home</Link> */}
+          <a href="#pricing" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Pricing & Plans</a>
+          <a href="#testimonials" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Testimonials</a>
+          <a href="#faq" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">FAQ</a>
+          <a href="#contact" className="text-accent font-semibold text-sm hover:text-primary transition-colors duration-200">Contact Us</a>
         </nav>
 
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
           <Button 
             variant="outline" 
-            className="border border-gray-500 rounded-[8px] text-accent font-light h-[44px]"
+            className="border border-gray-300 text-sm rounded-[8px] text-accent font-light h-[40px] px-4"
+            onClick={() => navigate('/login')}
           >
-            <div className="flex items-center">
-              {/* <img src="/images/img_apple_logo.png" alt="Apple" className="w-5 h-5 mr-2" />
-              <img src="/images/img_google_play.png" alt="Google Play" className="w-5 h-5 mr-2" />
-              <span className="mx-2 text-gray-200">|</span> */}
-              <span className='text-sm'>Download app</span>
-            </div>
+            Login
           </Button>
           <Button 
             variant="primary" 
-            className="rounded-[8px] font-light text-sm h-[44px] min-w-[120px]"
+            className="rounded-[8px] text-sm font-light h-[40px] px-4"
+            onClick={() => navigate('/signup')}
           >
-            Talk to us
+            Get Started
           </Button>
         </div>
 
@@ -76,68 +73,77 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+      <div 
+        className={`md:hidden fixed inset-x-0 top-[72px] transform transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen 
+            ? 'translate-y-0 opacity-100 visible' 
+            : '-translate-y-full opacity-0 invisible'
+        }`}
+      >
+        <div className="bg-white shadow-lg">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
               <Link 
-                to="#features" 
-                className="text-accent font-semibold py-2 hover:text-primary transition-colors duration-200"
+                to="/" 
+                className="text-accent text-sm font-semibold py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Features
+                Home
               </Link>
               <Link 
-                to="#pricing" 
-                className="text-accent font-semibold py-2 hover:text-primary transition-colors duration-200"
+                to="/pricing" 
+                className="text-accent text-sm font-semibold py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Pricing
+                Pricing & Plans
               </Link>
               <Link 
-                to="#businesses" 
-                className="text-accent font-semibold py-2 hover:text-primary transition-colors duration-200"
+                to="#diaspora" 
+                className="text-accent text-sm font-semibold py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Businesses
+                Diaspora
               </Link>
               <Link 
-                to="#hmos" 
-                className="text-accent font-semibold py-2 hover:text-primary transition-colors duration-200"
+                to="#about" 
+                className="text-accent text-sm font-semibold py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                HMOs
+                About Us
               </Link>
               <Link 
-                to="#chat" 
-                className="text-accent font-semibold py-2 hover:text-primary transition-colors duration-200"
+                to="#contact" 
+                className="text-accent text-sm font-semibold py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Chat With Us
+                Contact
               </Link>
               <div className="flex flex-col space-y-3 pt-3">
                 <Button 
                   variant="outline" 
-                  className="border border-gray-500 rounded-[10px] text-accent font-semibold h-[44px]"
+                  className="border border-gray-300 rounded-[8px] text-accent font-light h-[40px]"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/login');
+                  }}
                 >
-                  <div className="flex items-center justify-center">
-                    <img src="/images/img_apple_logo.png" alt="Apple" className="w-5 h-5 mr-2" />
-                    <img src="/images/img_google_play.png" alt="Google Play" className="w-5 h-5 mr-2" />
-                    <span className="mx-2 text-gray-200">|</span>
-                    <span>Download app</span>
-                  </div>
+                  Login
                 </Button>
                 <Button 
                   variant="primary" 
-                  className="rounded-[10px] font-semibold h-[44px]"
+                  className="rounded-[8px] font-light h-[40px]"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/signup');
+                  }}
                 >
-                  Talk to us
+                  Get Started
                 </Button>
               </div>
             </nav>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

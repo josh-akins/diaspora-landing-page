@@ -1,161 +1,109 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Card from '../../../components/common/Card';
+import React, { useState } from 'react';
 
 const TestimonialsSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const slideInterval = useRef(null);
-  const slideContainerRef = useRef(null);
-
-  const originalTestimonials = [
+  const testimonials = [
     {
       id: 1,
       name: "Fatima Shuaibu",
       role: "Lead Accountant, Faygo.",
-      avatar: "/images/img_ellipse_1828.png",
-      content: "With OneWellness , I was able to monitor my mom and dad's medical records from Sweden, especially their risk levels and the times that they needed hospitalization.\nThe best part of using onewellness is that I don't have to worry about getting money to my parents on time to pay for services rendered."
+      image: "/images/testimonial_img01.png",
+      content: "With OneWellness Remit, I can monitor my mom and dad's medical records from Sweden, including their risk levels and any times they needed hospitalization. The best part? I no longer have to worry about sending money to my parents on time to cover their medical expenses—it's all taken care of seamlessly."
     },
     {
       id: 2,
       name: "Gbenga Adeniji",
       role: "Operations Analyst, Hefty.",
-      avatar: "/images/img_ellipse_1830.png",
-      content: "With OneWellness, I was able to monitor my mom and dad's medical records from Sweden, especially their risk levels and the times that they needed hospitalization.\nThe best part of using onewellness is that I don't have to worry about getting money to my parents on time to pay for services rendered."
+      image: "/images/testimonial_img01.png",
+      content: "OneWellness has transformed how I manage my parents' healthcare from abroad. The platform's comprehensive monitoring and automatic payment systems give me complete peace of mind, knowing they're well taken care of without any financial delays."
     },
     {
       id: 3,
       name: "Nkechi Akagbogu",
       role: "Finance Lead, Satrin.",
-      avatar: "/images/img_ellipse_1829.png",
-      content: "With OneWellness I was able to monitor my mom and dad's medical records from Sweden, especially their risk levels and the times that they needed hospitalization.\nThe best part of using onewellness is that I don't have to worry about getting money to my parents on time to pay for services rendered."
+      image: "/images/testimonial_img01.png",
+      content: "The seamless integration of healthcare monitoring and payment systems has made it so much easier to ensure my parents receive timely medical care. OneWellness truly understands the challenges of managing family healthcare from a distance."
     }
   ];
 
-  // Create duplicated array for infinite scroll
-  const testimonials = [...originalTestimonials, ...originalTestimonials];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const startSlideTimer = () => {
-    stopSlideTimer();
-    slideInterval.current = setInterval(() => {
-      moveNext();
-    }, 5000); // Longer interval for testimonials to allow reading
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
   };
 
-  const stopSlideTimer = () => {
-    if (slideInterval.current) {
-      clearInterval(slideInterval.current);
-    }
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
-
-  const moveNext = () => {
-    setIsTransitioning(true);
-    setCurrentSlide(prev => prev + 1);
-  };
-
-  // Calculate slide width based on screen size
-  const getSlideWidth = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 576) return 100; // 1 slide
-      if (window.innerWidth < 1024) return 50; // 2 slides
-      return 33.333; // 3 slides
-    }
-    return 33.333; // Default to 3 slides
-  };
-
-  // Handle the transition end and reset position if needed
-  useEffect(() => {
-    if (currentSlide >= originalTestimonials.length) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentSlide(0);
-      }, 700);
-      return () => clearTimeout(timer);
-    }
-  }, [currentSlide]);
-
-  useEffect(() => {
-    startSlideTimer();
-    return () => stopSlideTimer();
-  }, []);
 
   return (
-    <section className="py-16 bg-[#0e6451] text-white relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ 
-        backgroundImage: 'url(/images/bg_pattern03.png)', 
-        backgroundRepeat: 'repeat',
-        backgroundPosition: 'center', 
-        opacity: 0.05 
-      }}>
-      </div>
-
+    <section id="testimonials" className="py-20 bg-[#FDF8F3]">
       <div className="container mx-auto px-4">
-        <h2 className="text-[#FFFFFF] text-5xl md:text-6xl font-semibold mb-16 text-center">
-          Listen to our{" "}
-          <span className="bg-gradient-to-r from-[#3da647] to-[#f6921e] text-transparent bg-clip-text">
-            Clients
-          </span>
-        </h2>
-        
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div 
-              ref={slideContainerRef}
-              className={`flex gap-4 md:gap-8 transition-transform duration-700 ${isTransitioning ? 'ease-in-out' : 'duration-0'}`}
-              style={{ transform: `translateX(-${currentSlide * getSlideWidth()}%)` }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={`${testimonial.id}-${index}`}
-                  className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 md:px-2"
-                >
-                  <Card 
-                    backgroundColor="bg-white"
-                    shadowEffect={true}
-                    rounded="rounded-[20px]"
-                    className="h-full flex flex-col"
-                  >
-                    <div className="flex-1 flex flex-col items-center md:p-6">
-                      <img 
-                        src={testimonial.avatar} 
-                        alt={testimonial.name} 
-                        className="w-[100px] h-[100px] rounded-full mb-[35px]"
-                      />
-                      <p className="text-[#66696b] text-center text-sm leading-[30px] mb-6">
-                        {testimonial.content}
-                      </p>
-                      <div className="mt-auto">
-                        <h4 className="text-[#1a3a4f] text-md font-bold text-center">{testimonial.name}</h4>
-                        <p className="text-[#676a6b] text-base text-center">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-              ))}
-            </div>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="mb-12">
+            <p className="text-gray-600 text-lg mb-4">See what our customers are saying</p>
+            <h2 className="text-[#0A4B35] text-3xl md:text-5xl font-bold">
+              Don't Take Our<br />
+              Word for It
+            </h2>
           </div>
 
-          <div className="flex justify-center mt-12 space-x-4">
-            <button 
-              onClick={() => setCurrentSlide(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-              className="bg-white rounded-full w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex items-center justify-center border border-[#8b9b9c] hover:bg-gray-50 transition-colors"
-            >
-              <img 
-                src="/images/img_arrow_26.svg" 
-                alt="Previous" 
-                className="w-4 h-4 md:w-6 md:h-6"
-              />
-            </button>
-            <button 
-              onClick={() => setCurrentSlide(prev => prev === testimonials.length - 1 ? 0 : prev + 1)}
-              className="bg-white rounded-full w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex items-center justify-center border border-[#8b9b9c] hover:bg-gray-50 transition-colors"
-            >
-              <img 
-                src="/images/img_arrow_26.svg" 
-                alt="Next"
-                className="transform rotate-180 w-4 h-4 md:w-6 md:h-6" 
-              />
-            </button>
+          {/* Testimonial Content */}
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Testimonial Text */}
+            <div className="w-full lg:w-1/2">
+              <div className="relative">
+                <blockquote className="text-gray-600 text-xl leading-relaxed mb-8">
+                  {testimonials[currentIndex].content}
+                </blockquote>
+                
+                <div className="mb-8">
+                  <h4 className="text-[#0A4B35] text-xl font-bold">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  <p className="text-gray-600">
+                    {testimonials[currentIndex].role}
+                  </p>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="flex gap-4">
+                  <button
+                    onClick={handlePrevious}
+                    className="p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-colors"
+                    aria-label="Previous testimonial"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M15 19l-7-7 7-7" stroke="#0A4B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-colors"
+                    aria-label="Next testimonial"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 5l7 7-7 7" stroke="#0A4B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial Image */}
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src={testimonials[currentIndex].image}
+                  alt={testimonials[currentIndex].name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

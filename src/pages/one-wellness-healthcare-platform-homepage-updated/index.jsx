@@ -14,27 +14,29 @@ import StepsSection from './components/StepsSection';
 import MobileSection from './components/MobileSection';
 import ClosingCTASection from './components/ClosingCTASection';
 import HealthInsurance from './components/HealthInsurance';
+import PricingSection from './components/PricingSection';
+import FAQSection from './components/FAQSection';
 
 const OneWellnessHealthcarePlatformHomepageUpdated = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
+      {/* <Header /> */}
       <main>
         <HeroSection />
         <BenefitsSection />
         <RemoteHealthSection />
-        <InsuranceSection />
+        {/* <InsuranceSection />
         <SupportSection />
         <TeamMotivationSection />
         <HealthInsurance />
         <AdminSection />
-        <PlansSection />
+        <PlansSection /> */}
         <TestimonialsSection />
         <StepsSection />
-        <MobileSection />
+        <PricingSection />
         <ClosingCTASection />
+        <FAQSection />
       </main>
-      <Footer />
     </div>
   );
 };
