@@ -51,13 +51,13 @@ const Header = () => {
           >
             Login
           </Button> */}
-          <Button 
+          {/* <Button 
             variant="primary" 
             className="rounded-[8px] text-sm font-light h-[40px] px-4"
             onClick={() => navigate('/signup')}
           >
             Get Started
-          </Button>
+          </Button> */}
         </div>
 
         {/* Mobile Menu Button */}
@@ -129,7 +129,7 @@ const Header = () => {
                 >
                   Login
                 </Button> */}
-                <Button 
+                {/* <Button 
                   variant="primary" 
                   className="rounded-[8px] font-light h-[40px]"
                   onClick={() => {
@@ -138,7 +138,7 @@ const Header = () => {
                   }}
                 >
                   Get Started
-                </Button>
+                </Button> */}
               </div>
             </nav>
           </div>
