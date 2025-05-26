@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
@@ -17,28 +18,38 @@ import HealthInsurance from './components/HealthInsurance';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import DiscoveryCallSection from './components/DiscoveryCallSection';
+import BookingConfirmedSection from './components/BookingConfirmedSection';
 
 const OneWellnessHealthcarePlatformHomepageUpdated = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* <Header /> */}
-      <main>
-        <HeroSection />
-        <BenefitsSection />
-        <RemoteHealthSection />
-        {/* <InsuranceSection />
-        <SupportSection />
-        <TeamMotivationSection />
-        <HealthInsurance />
-        <AdminSection />
-        <PlansSection /> */}
-        <TestimonialsSection />
-        <StepsSection />
-        <PricingSection />
-        <DiscoveryCallSection />
-        <ClosingCTASection />
-        <FAQSection />
-      </main>
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <main>
+                <HeroSection />
+                <BenefitsSection />
+                <RemoteHealthSection />
+                {/* <InsuranceSection />
+                <SupportSection />
+                <TeamMotivationSection />
+                <HealthInsurance />
+                <AdminSection />
+                <PlansSection /> */}
+                <TestimonialsSection />
+                <StepsSection />
+                <PricingSection />
+                <DiscoveryCallSection />
+                <ClosingCTASection />
+                <FAQSection />
+              </main>
+            </>
+          } 
+        />
+        <Route path="/booking-confirmed" element={<BookingConfirmedSection />} />
+      </Routes>
     </div>
   );
 };

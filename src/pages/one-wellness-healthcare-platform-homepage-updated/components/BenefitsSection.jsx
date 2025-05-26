@@ -76,13 +76,6 @@ const BenefitsSection = () => {
               <p className="text-gray-600 mb-4 w-[300px]">
                 {service.description}
               </p>
-
-              <Link 
-                to="/pricing" 
-                className="text-[#28A745] font-semibold hover:text-[#218838] transition-colors duration-300 underline"
-              >
-                See Pricing
-              </Link>
             </div>
           ))}
         </div>

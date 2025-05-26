@@ -4,22 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 const plans = [
   {
     id: 1,
-    name: 'Mama Papa Health Visit',
-    price: 22,
-    period: 'month'
-  },
-  {
-    id: 2,
-    name: 'Mama Papa Health Cover',
+    name: 'Mama & Papa 360',
     price: 200,
     period: 'Per Annum'
   },
   {
-    id: 3,
-    name: 'Check On Mama & Papa',
-    price: 34,
-    period: 'Within 24hr'
-  }
+    id: 2,
+    name: 'Mama Papa Health Visit',
+    price: 22,
+    period: 'month'
+  },
 ];
 
 const ChoosePlanPage = () => {
